@@ -1,10 +1,8 @@
-import itemImage from "../public/images/1.jpg"
-
 const Homeitems = ({item}) => {
   return (
     <>
       <div className="item-container">
-        <img className="item-image" src={itemImage} alt="item image" />
+        <img className="item-image" src={item.image} alt="item image" />
         <div className="rating">
           {item.rating.stars} ⭐ | {item.rating.count}
         </div>
@@ -15,7 +13,7 @@ const Homeitems = ({item}) => {
           <span className="original-price">Rs {item.original_price}</span>
           <span className="discount">({item.discount_percentage}% OFF)</span>
         </div>
-        <button className="btn-add-bag" onclick={ () => console.log("Item added")}>
+        <button className="btn-add-bag" onClick={ () => console.log("Item added")}>
           Add to Bag
         </button>
       </div>
