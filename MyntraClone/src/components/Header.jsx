@@ -2,9 +2,11 @@ import { IoMdPerson } from "react-icons/io";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Home from "../routes/Home";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const bagItems = useSelector((store) => store.bagItems);
+
   return (
     <>
       <header>
@@ -28,27 +30,26 @@ const Header = () => {
           </a>
         </nav>
         <div className="search_bar">
-          <span className="material-symbols-outlined search_icon">search</span>
           <input
             className="search_input"
-            placeholder="Search for products, brands and more"
+            placeholder="      Search for products, brands and more"
           />
         </div>
         <div className="action_bar">
           <div className="action_container">
-          <IoMdPerson />
+            <IoMdPerson />
             <span className="action_name">Profile</span>
           </div>
 
           <div className="action_container">
-          <FaHeart />
+            <FaHeart />
             <span className="action_name">Wishlist</span>
           </div>
 
           <Link to={"Bag"} className="action_container" href="pages/bag.html">
-          <FaShoppingCart />
+            <FaShoppingCart />
             <span className="action_name">Bag</span>
-            <span className="bag-item-count">0</span>
+            <span className="bag-item-count">{bagItems.length}</span>
           </Link>
         </div>
       </header>
